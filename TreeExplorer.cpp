@@ -213,7 +213,7 @@ void TreeExplorer::checkPerfectTree() const {
 
 // Imprime a árvore utilizando BFS (Busca em Largura)
 void TreeExplorer::printBFS() const {
-    std::cout << "BFS transversal: ";
+    std::cout << "BFS: ";
     tree.printBFS();
 }
 
