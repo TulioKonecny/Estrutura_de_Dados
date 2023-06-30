@@ -16,7 +16,7 @@ Com rodar o programa:
 
 # :hammer: Observações do Trabalho
 
-`Construir árvore por arquivo de texto` para inserir a árvore por arquivo de texto, é nescessário que o documento se encontre na mesma pasta na qual está rodando o programa. Formatação do arquivo de texto: números separados por espaço. Vale lembrar que tem que ser um `.txt`
+`Construir árvore por arquivo de texto` para inserir a árvore por arquivo de texto, é nescessário que o documento se encontre na mesma pasta na qual está rodando o programa. Formatação do arquivo de texto: números separados por espaço. Vale lembrar que tem que ser um `.txt`. Ao digitar o nome do arquivo, não esqueça de escrever a extensão.
 
 Caso digite um número duplicado, ele não aparecerá duas vezes.
 
