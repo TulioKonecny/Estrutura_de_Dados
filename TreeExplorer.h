@@ -19,7 +19,7 @@ private:
     void printMenu() const;
     
     // Processa a opção selecionada pelo usuário
-    void processOption(int option);
+    void processOption(int intOption);
     
     // Constrói a árvore a partir de um arquivo
     void constructTreeFromFile();
@@ -61,19 +61,19 @@ private:
     void convertAndSortWithShellSort();
     
     // Ordena uma lista usando Bubble Sort
-    void bubbleSort(std::vector<int>& list);
+    void bubbleSort(std::vector<int>& vecList);
     
     // Ordena uma lista usando Selection Sort
-    void selectionSort(std::vector<int>& list);
+    void selectionSort(std::vector<int>& vecList);
     
     // Ordena uma lista usando Insertion Sort
-    void insertionSort(std::vector<int>& list);
+    void insertionSort(std::vector<int>& vecList);
     
     // Ordena uma lista usando Shell Sort
-    void shellSort(std::vector<int>& list);
+    void shellSort(std::vector<int>& vecList);
     
     // Imprime uma lista de inteiros
-    void printList(const std::vector<int>& list) const;
+    void printList(const std::vector<int>& vecList) const;
     
     // Imprime o tempo decorrido desde o início da execução
     void printTimeElapsed();
