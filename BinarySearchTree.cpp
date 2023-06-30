@@ -172,21 +172,21 @@ int BinarySearchTree::getSize(TreeNode* ptrNode) const {
     return getSize(ptrNode->ptrLeft) + getSize(ptrNode->ptrRight) + 1;
 }
 
-//Chama o conversor da árvore em uma lista ordenada
+//Chama o conversor da árvore em uma lista 
 std::vector<int> BinarySearchTree::toList() const {
     std::vector<int> vecList;
     convertToList(ptrRoot, vecList);
     return vecList;
 }
 
-// Converte a árvore em uma lista ordenada
+// Converte a árvore em uma lista 
 void BinarySearchTree::convertToList(TreeNode* ptrNode, std::vector<int>& vecList) const {
     if (!ptrNode) {
         return;
     }
-    convertToList(ptrNode->ptrLeft, vecList);
-    vecList.push_back(ptrNode->intData);
     convertToList(ptrNode->ptrRight, vecList);
+    vecList.push_back(ptrNode->intData);
+    convertToList(ptrNode->ptrLeft, vecList);
 }
 
 
