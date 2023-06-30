@@ -8,12 +8,12 @@
 TreeExplorer::TreeExplorer() {}
 
 void TreeExplorer::run() {
-    int option;
+    int intOption;
     do {
         printMenu();
-        std::cin >> option;
-        processOption(option);
-    } while (option != 0);
+        std::cin >> intOption;
+        processOption(intOption);
+    } while (intOption != 0);
 }
 
 // Imprime o menu de opções
@@ -41,8 +41,8 @@ void TreeExplorer::printMenu() const {
  
 }
 
-void TreeExplorer::processOption(int option) {
-    switch (option) {
+void TreeExplorer::processOption(int intOption) {
+    switch (intOption) {
         case 1:
             constructTreeFromFile();
             break;
@@ -115,13 +115,13 @@ void TreeExplorer::processOption(int option) {
 
  // Constrói a árvore a partir de um arquivo
 void TreeExplorer::constructTreeFromFile() {
-    std::string filename;
+    std::string strFilename;
     std::cout << "Digite o nome do arquivo: ";
-    std::cin >> filename;
+    std::cin >> strFilename;
 
-    std::ifstream file(filename);
+    std::ifstream file(strFilename);
     if (!file) {
-        std::cout << "Erro ao abrir o arquivo: " << filename << std::endl;
+        std::cout << "Erro ao abrir o arquivo: " << strFilename << std::endl;
         return;
     }
 
@@ -135,12 +135,12 @@ void TreeExplorer::constructTreeFromFile() {
 
 // Constrói a árvore a partir de entradas do usuário
 void TreeExplorer::constructTreeFromInput() {
-    int size;
+    int intSize;
     std::cout << "Digite o número de elementos: ";
-    std::cin >> size;
+    std::cin >> intSize;
 
     std::cout << "Escreva os elementos: ";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < intSize; i++) {
         int intValue;
         std::cin >> intValue;
         tree.insert(intValue);
@@ -185,9 +185,9 @@ void TreeExplorer::searchElement() {
     std::cout << "Digite o elemento que deseja buscar: ";
     std::cin >> intValue;
 
-    TreeNode* result = tree.search(intValue);
-    if (result) {
-        std::cout << "Elemento encontrado no endereço de memória: " << result << std::endl;
+    TreeNode* ptrResult = tree.search(intValue);
+    if (ptrResult) {
+        std::cout << "Elemento encontrado no endereço de memória: " << ptrResult << std::endl;
     } else {
         std::cout << "Elemento não encontrado na árvore." << std::endl;
     }
@@ -219,102 +219,102 @@ void TreeExplorer::printBFS() const {
 
 // Converte a árvore em uma lista e ordena usando Bubble Sort
 void TreeExplorer::convertAndSortWithBubbleSort() {
-    std::vector<int> list = tree.toList();
+    std::vector<int> vecList = tree.toList();
 
-    bubbleSort(list);
+    bubbleSort(vecList);
 
     std::cout << "Ordenando usando o Bubble Sort: ";
-    printList(list);
+    printList(vecList);
 }
 
 // Converte a árvore em uma lista e ordena usando Selection Sort
 void TreeExplorer::convertAndSortWithSelectionSort() {
-    std::vector<int> list = tree.toList();
+    std::vector<int> vecList = tree.toList();
 
-    selectionSort(list);
+    selectionSort(vecList);
 
     std::cout << "Ordenando usando o Selection Sort: ";
-    printList(list);
+    printList(vecList);
 }
 
 // Converte a árvore em uma lista e ordena usando Insertion Sort
 void TreeExplorer::convertAndSortWithInsertionSort() {
-    std::vector<int> list = tree.toList();
+    std::vector<int> vecList = tree.toList();
 
-    insertionSort(list);
+    insertionSort(vecList);
 
     std::cout << "Ordenando usando o Insertion Sort: ";
-    printList(list);
+    printList(vecList);
 }
 
 // Converte a árvore em uma lista e ordena usando Shell Sort
 void TreeExplorer::convertAndSortWithShellSort() {
-    std::vector<int> list = tree.toList();
+    std::vector<int> vecList = tree.toList();
 
-    shellSort(list);
+    shellSort(vecList);
 
     std::cout << "Ordenando usando o Shell Sort: ";
-    printList(list);
+    printList(vecList);
 }
 
 // Implementa o algoritmo Bubble Sort para ordenação
-void TreeExplorer::bubbleSort(std::vector<int>& list) {
-    int size = list.size();
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - i - 1; j++) {
-            if (list[j] > list[j + 1]) {
-                std::swap(list[j], list[j + 1]);
+void TreeExplorer::bubbleSort(std::vector<int>& vecList) {
+    int intSize = vecList.size();
+    for (int i = 0; i < intSize - 1; i++) {
+        for (int j = 0; j < intSize - i - 1; j++) {
+            if (vecList[j] > vecList[j + 1]) {
+                std::swap(vecList[j], vecList[j + 1]);
             }
         }
     }
 }
 
 // Implementa o algoritmo Selection Sort para ordenação
-void TreeExplorer::selectionSort(std::vector<int>& list) {
-    int size = list.size();
-    for (int i = 0; i < size - 1; i++) {
-        int minIndex = i;
-        for (int j = i + 1; j < size; j++) {
-            if (list[j] < list[minIndex]) {
-                minIndex = j;
+void TreeExplorer::selectionSort(std::vector<int>& vecList) {
+    int intSize = vecList.size();
+    for (int i = 0; i < intSize - 1; i++) {
+        int intMinIndex = i;
+        for (int j = i + 1; j < intSize; j++) {
+            if (vecList[j] < vecList[intMinIndex]) {
+                intMinIndex = j;
             }
         }
-        std::swap(list[i], list[minIndex]);
+        std::swap(vecList[i], vecList[intMinIndex]);
     }
 }
 
 // Implementa o algoritmo Insertion Sort para ordenação
-void TreeExplorer::insertionSort(std::vector<int>& list) {
-    int size = list.size();
-    for (int i = 1; i < size; i++) {
-        int key = list[i];
+void TreeExplorer::insertionSort(std::vector<int>& vecList) {
+    int intSize = vecList.size();
+    for (int i = 1; i < intSize; i++) {
+        int intKey = vecList[i];
         int j = i - 1;
-        while (j >= 0 && list[j] > key) {
-            list[j + 1] = list[j];
+        while (j >= 0 && vecList[j] > intKey) {
+            vecList[j + 1] = vecList[j];
             j--;
         }
-        list[j + 1] = key;
+        vecList[j + 1] = intKey;
     }
 }
 
 // Implementa o algoritmo Shell Sort para ordenação
-void TreeExplorer::shellSort(std::vector<int>& list) {
-    int size = list.size();
-    for (int gap = size / 2; gap > 0; gap /= 2) {
-        for (int i = gap; i < size; i++) {
-            int temp = list[i];
+void TreeExplorer::shellSort(std::vector<int>& vecList) {
+    int intSize = vecList.size();
+    for (int intGap = intSize / 2; intGap > 0; intGap /= 2) {
+        for (int i = intGap; i < intSize; i++) {
+            int intTemp = vecList[i];
             int j;
-            for (j = i; j >= gap && list[j - gap] > temp; j -= gap) {
-                list[j] = list[j - gap];
+            for (j = i; j >= intGap && vecList[j - intGap] > intTemp; j -= intGap) {
+                vecList[j] = vecList[j - intGap];
             }
-            list[j] = temp;
+            vecList[j] = intTemp;
         }
     }
 }
 
 // Imprime os elementos da lista
-void TreeExplorer::printList(const std::vector<int>& list) const {
-    for (int i : list) {
+void TreeExplorer::printList(const std::vector<int>& vecList) const {
+    for (int i : vecList) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
@@ -326,4 +326,3 @@ void TreeExplorer::printTimeElapsed() {
     std::chrono::duration<double> timeElapsed = endTime - startTime;
     std::cout << "Tempo gasto: " << timeElapsed.count() << " segundos" << std::endl;
 }
-
