@@ -198,7 +198,7 @@ void TreeExplorer::checkCompleteTree() const {
     if (tree.isComplete()) {
         std::cout << "A árvore é completa." << std::endl;
     } else {
-        std::cout << "TA árvore não é completa." << std::endl;
+        std::cout << "A árvore não é completa." << std::endl;
     }
 }
 
