@@ -5,11 +5,11 @@
 #include <vector>
 
 struct TreeNode {
-    int data;
-    TreeNode* left;
-    TreeNode* right;
+    int intData;
+    TreeNode* ptrLeft;
+    TreeNode* ptrRight;
 
-    explicit TreeNode(int intValue) : data(intValue), left(nullptr), right(nullptr) {}
+    explicit TreeNode(int intValue) : intData(intValue), ptrLeft(nullptr), ptrRight(nullptr) {}
 };
 
 class BinarySearchTree {
@@ -48,33 +48,33 @@ public:
     // Converte a árvore em uma lista
 
 private:
-    TreeNode* root;
+    TreeNode* ptrRoot;
 
-    void clear(TreeNode* node);
+    void clear(TreeNode* ptrNode);
     // Limpa a árvore a partir de um nó específico, liberando a memória ocupada pelos nós
 
-    void insert(TreeNode*& node, int intValue);
+    void insert(TreeNode*& ptrNode, int intValue);
     // Insere um novo elemento na árvore a partir de um nó específico
 
-    bool remove(TreeNode*& node, int intValue);
+    bool remove(TreeNode*& ptrNode, int intValue);
     // Remove um elemento da árvore a partir de um nó específico
 
-    TreeNode* search(TreeNode* node, int intValue) const;
+    TreeNode* search(TreeNode* ptrNode, int intValue) const;
     // Busca um elemento na árvore a partir de um nó específico e retorna o nó correspondente, se encontrado
 
-    bool isComplete(TreeNode* node, int index, int size) const;
+    bool isComplete(TreeNode* ptrNode, int intIndex, int intSize) const;
     // Verifica se a árvore a partir de um nó específico é completa
 
-    int getHeight(TreeNode* node) const;
+    int getHeight(TreeNode* ptrNode) const;
     // Retorna a altura da árvore a partir de um nó específico
 
-    int getSize(TreeNode* node) const;
+    int getSize(TreeNode* ptrNode) const;
     // Retorna o número de elementos na árvore a partir de um nó específico
 
-    void printBFS(TreeNode* node) const;
+    void printBFS(TreeNode* ptrNode) const;
     // Imprime a árvore utilizando a estratégia de busca em largura (BFS) a partir de um nó específico
 
-    void convertToList(TreeNode* node, std::vector<int>& list) const;
+    void convertToList(TreeNode* ptrNode, std::vector<int>& vecList) const;
     // Converte a árvore em uma lista a partir de um nó específico
 };
 
