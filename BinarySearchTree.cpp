@@ -7,6 +7,7 @@ BinarySearchTree::~BinarySearchTree() {
     clear();
 }
 
+//Limpa
 void BinarySearchTree::clear() {
     clear(ptrRoot);
     ptrRoot = nullptr;
@@ -21,11 +22,12 @@ void BinarySearchTree::clear(TreeNode* ptrNode) {
     }
 }
 
-// Insere um valor na árvore
+// Chama o inseridor um valor na árvore
 void BinarySearchTree::insert(int intValue) {
     insert(ptrRoot, intValue);
 }
 
+// Insere um valor na árvore
 void BinarySearchTree::insert(TreeNode*& ptrNode, int intValue) {
     if (!ptrNode) {
         ptrNode = new TreeNode(intValue);
@@ -36,11 +38,12 @@ void BinarySearchTree::insert(TreeNode*& ptrNode, int intValue) {
     }
 }
 
-// Remove um valor da árvore
+// Chama o removedor de um valor
 bool BinarySearchTree::remove(int intValue) {
     return remove(ptrRoot, intValue);
 }
 
+// Remove um valor da árvore
 bool BinarySearchTree::remove(TreeNode*& ptrNode, int intValue) {
     if (!ptrNode) {
         return false;
@@ -72,11 +75,12 @@ bool BinarySearchTree::remove(TreeNode*& ptrNode, int intValue) {
     }
 }
 
-// Procura um valor na árvore
+// Chama o procurador um valor na árvore
 TreeNode* BinarySearchTree::search(int intValue) const {
     return search(ptrRoot, intValue);
 }
 
+// Procura um valor na árvore
 TreeNode* BinarySearchTree::search(TreeNode* ptrNode, int intValue) const {
     if (!ptrNode || ptrNode->intData == intValue) {
         return ptrNode;
@@ -87,12 +91,13 @@ TreeNode* BinarySearchTree::search(TreeNode* ptrNode, int intValue) const {
     }
 }
 
-// Verifica se a árvore é completa
+// Chama o Verificador se a árvore é completa
 bool BinarySearchTree::isComplete() const {
     int intSize = getSize();
     return isComplete(ptrRoot, 0, intSize);
 }
 
+// Verifica se a árvore é completa
 bool BinarySearchTree::isComplete(TreeNode* ptrNode, int intIndex, int intSize) const {
     if (!ptrNode) {
         return true;
@@ -110,11 +115,12 @@ bool BinarySearchTree::isPerfect() const {
     return intIndex == (1 << intHeight) - 1;
 }
 
-// Imprime a árvore em ordem de largura (BFS)
+// Chama o print da árvore em ordem de largura (BFS)
 void BinarySearchTree::printBFS() const {
     printBFS(ptrRoot);
 }
 
+// Imprime a árvore em ordem de largura (BFS)
 void BinarySearchTree::printBFS(TreeNode* ptrNode) const {
     if (!ptrNode) {
         return;
@@ -140,11 +146,11 @@ void BinarySearchTree::printBFS(TreeNode* ptrNode) const {
     std::cout << std::endl;
 }
 
-// Obtém a altura da árvore
+//Chama o obtedor da altura
 int BinarySearchTree::getHeight() const {
     return getHeight(ptrRoot);
 }
-
+// Obtém a altura da árvore
 int BinarySearchTree::getHeight(TreeNode* ptrNode) const {
     if (!ptrNode) {
         return 0;
@@ -154,11 +160,11 @@ int BinarySearchTree::getHeight(TreeNode* ptrNode) const {
     return std::max(ptrLeftHeight, ptrRightHeight) + 1;
 }
 
-// Obtém o tamanho da árvore (número de nós)
+// Chama o obtedor do tamanho
 int BinarySearchTree::getSize() const {
     return getSize(ptrRoot);
 }
-
+// Obtém o tamanho da árvore (número de nós)
 int BinarySearchTree::getSize(TreeNode* ptrNode) const {
     if (!ptrNode) {
         return 0;
@@ -166,13 +172,14 @@ int BinarySearchTree::getSize(TreeNode* ptrNode) const {
     return getSize(ptrNode->ptrLeft) + getSize(ptrNode->ptrRight) + 1;
 }
 
-// Converte a árvore em uma lista ordenada
+//Chama o conversor da árvore em uma lista ordenada
 std::vector<int> BinarySearchTree::toList() const {
     std::vector<int> vecList;
     convertToList(ptrRoot, vecList);
     return vecList;
 }
 
+// Converte a árvore em uma lista ordenada
 void BinarySearchTree::convertToList(TreeNode* ptrNode, std::vector<int>& vecList) const {
     if (!ptrNode) {
         return;
